@@ -70,3 +70,4 @@ class Cart:
     def click_back_to_home(self):
         time.sleep(3)
         self.driver.find_element_by_id("back-to-products").click()
+        time.sleep(5)
