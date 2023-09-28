@@ -19,6 +19,7 @@ class LoginPage:
 
     def click_login_btn(self):
         self.driver.find_element_by_id(self.login_btn_id).click()
+        print("Entering Home Page")
 
     def login(self, username, pwd):
         self.input_username(username)

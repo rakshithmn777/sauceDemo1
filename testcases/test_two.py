@@ -27,3 +27,4 @@ class TestTwo:
         home = HomePage(driver)
         home.change_order()
         assert self.sorted_order == home.return_order()
+        driver.quit()
