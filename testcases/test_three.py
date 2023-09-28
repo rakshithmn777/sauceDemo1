@@ -38,10 +38,6 @@ class TestTwo:
         login.login(user, pwd)
         home = HomePage(driver)
         cart = Cart(driver)
-        #home.change_order("Price (high to low)")
-        #driver.find_element_by_id(home.high_item).click()
-        #home.change_order("Price (low to high)")
-        #driver.find_element_by_id(home.low_item).click()
         home.add_high_low_items()
         home.click_cart()
         cart.click_checkout()
@@ -65,5 +61,3 @@ class TestTwo:
         assert self.order_confirmation_two in order_confirm
         cart.click_back_to_home()
         driver.quit()
-
-

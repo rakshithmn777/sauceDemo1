@@ -52,10 +52,8 @@ class Cart:
         tax = self.driver.find_element_by_class_name("summary_tax_label").text
         tax = float(tax.split()[1].removeprefix("$"))
         tax = "{:.2f}".format(tax)
-
         tot_one = float(total) + float(tax)
-
-        tot = self.driver.find_element_by_class_name("summary_info_label summary_total_label").text
+        tot = self.driver.find_element_by_xpath("//div[contains(text(),'Total: $')]").text
         tot = float(tot.split()[1].removeprefix("$"))
         tot = "{:.2f}".format(tot)
 
