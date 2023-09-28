@@ -9,7 +9,8 @@ class TestTwo:
     order = ['Sauce Labs Backpack', 'Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt', 'Sauce Labs Fleece Jacket', 'Sauce Labs Onesie', 'Test.allTheThings() T-Shirt (Red)']
     sorted_order = ['Sauce Labs Fleece Jacket', 'Sauce Labs Backpack', 'Sauce Labs Bolt T-Shirt', 'Test.allTheThings() T-Shirt (Red)', 'Sauce Labs Bike Light', 'Sauce Labs Onesie']
     """
-    Verifying Default Order on Homepage
+    1. Verifying Default Order on Homepage
+    2. Changing the order, verifying the items on the same
     """
     def test_verify_default_sorting(self):
         driver = initialize_browser()
