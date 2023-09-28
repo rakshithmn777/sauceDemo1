@@ -8,4 +8,5 @@
        Pycharm, go to setting, under project, there will be python interpreter. Select that and install
        the packages that is listed in requirements.txt
 4. Using a webdriver manager, no need to specify the path for chromedriver
-5. Run pytest -v --html=./reports/report.html testcases/ in the terminal(must be in root path) to get the report
+5. Use IDE such as pycharm to run a single test or run pytest "testcase_path"(eg, pytest .\testcases\test_one.py) - must be in project rootpath
+6. Run pytest -v --html=./reports/report.html testcases/ in the terminal(must be in root path) to get the report - Run all the testcases available on testcases directory
