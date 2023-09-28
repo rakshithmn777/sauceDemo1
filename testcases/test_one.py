@@ -3,6 +3,7 @@ from page_objects.login_page import LoginPage
 from page_objects.home_page import HomePage
 from utilities.utils import *
 
+
 class TestOne:
     user1 = "standard_user"
     user2 = "performance_glitch_user"
@@ -13,6 +14,7 @@ class TestOne:
     1. Checking "standard_user" & "performance_glitch_user” is able to do successful login and land on home page and do logout.
     2. Asserting the error msg on login screen
     """
+
     def test_login_validations(self):
         driver = initialize_browser()
         login = LoginPage(driver)
@@ -31,7 +33,3 @@ class TestOne:
         error = login.return_error_msg()
         assert error == self.error_msg
         driver.quit()
-
-
-
-

@@ -1,3 +1,4 @@
+
 class LoginPage:
 
     username_id = "user-name"
@@ -18,6 +19,11 @@ class LoginPage:
 
     def click_login_btn(self):
         self.driver.find_element_by_id(self.login_btn_id).click()
+
+    def login(self, username, pwd):
+        self.input_username(username)
+        self.input_password(pwd)
+        self.click_login_btn()
 
     def return_error_msg(self):
         return self.driver.find_element_by_xpath(self.error_msg_xpath).text

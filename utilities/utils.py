@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
 base_url = "https://www.saucedemo.com/"
+user = "standard_user"
 pwd = "secret_sauce"
 
 
