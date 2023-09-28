@@ -25,6 +25,6 @@ class TestTwo:
         login = LoginPage(driver)
         login.login(user, pwd)
         home = HomePage(driver)
-        home.change_order()
+        home.change_order("Price (high to low)")
         assert self.sorted_order == home.return_order()
         driver.quit()

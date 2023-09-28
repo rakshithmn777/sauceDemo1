@@ -14,6 +14,9 @@ class HomePage:
     light_atc_id = "add-to-cart-sauce-labs-bike-light"
     shirt_atc_id = "add-to-cart-sauce-labs-bolt-t-shirt"
 
+    low_item = "add-to-cart-sauce-labs-onesie"
+    high_item = "add-to-cart-sauce-labs-fleece-jacket"
+
     def __init__(self, driver):
         self.driver = driver
 
@@ -36,14 +39,15 @@ class HomePage:
         print(default_order)
         return default_order
 
-    def change_order(self):
+    def change_order(self, order):
         time.sleep(3)
         select = Select(self.driver.find_element_by_class_name("product_sort_container"))
-        select.select_by_visible_text("Price (high to low)")
+        select.select_by_visible_text(order)
         time.sleep(5)
 
     def click_cart(self):
         time.sleep(3)
+        self.driver.execute_script("arguments[0].scrollIntoView();", self.driver.find_element_by_class_name(self.cart_class))
         self.driver.find_element_by_class_name(self.cart_class).click()
         time.sleep(5)
 
@@ -52,3 +56,15 @@ class HomePage:
         self.driver.find_element_by_id(self.backpack_atc_id).click()
         self.driver.find_element_by_id(self.light_atc_id).click()
         self.driver.find_element_by_id(self.shirt_atc_id).click()
+
+    def remove_items_from_cart(self):
+        time.sleep(3)
+        remove = self.driver.find_elements_by_xpath("//button[text()='Remove']")
+        for i in remove:
+            remove[i].click()
+
+    def add_high_low_items(self):
+        time.sleep(3)
+        self.driver.find_element_by_id(self.high_item).click()
+        self.driver.execute_script("arguments[0].scrollIntoView();", self.driver.find_element_by_id(self.low_item))
+        self.driver.find_element_by_id(self.low_item).click()
