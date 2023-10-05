@@ -84,7 +84,7 @@ class Cart:
             c = c.split()[0].removeprefix("$")
             cost.append(c)
         print(cost)
-        cost1 = list(map(float, cost))
+        cost1 = list(map(float, cost)) # converting to float to sort(compare)
         cost1.sort()
         high = cost1[-1]
         print(high)
