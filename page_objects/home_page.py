@@ -14,6 +14,7 @@ class HomePage:
     light_atc_id = "add-to-cart-sauce-labs-bike-light"
     shirt_atc_id = "add-to-cart-sauce-labs-bolt-t-shirt"
 
+
     low_item = "add-to-cart-sauce-labs-onesie"
     high_item = "add-to-cart-sauce-labs-fleece-jacket"
 
@@ -56,6 +57,10 @@ class HomePage:
         self.driver.find_element_by_id(self.backpack_atc_id).click()
         self.driver.find_element_by_id(self.light_atc_id).click()
         self.driver.find_element_by_id(self.shirt_atc_id).click()
+
+    def adding_items(self, xpath):
+        time.sleep(3)
+        self.driver.find_element_by_id(xpath).click()
 
     def remove_items_from_cart(self):
         time.sleep(3)

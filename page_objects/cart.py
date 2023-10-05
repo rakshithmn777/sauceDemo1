@@ -1,8 +1,11 @@
 import random
 import time
 import names
+
+
 class Cart:
     cart_list_items = "//div[@class='cart_list']//div[@class='inventory_item_name']"
+    cart_list_items_cost = "//div[@class='cart_list']//div[@class='inventory_item_price']"
     checkout_btn = "checkout"
     continue_btn = "continue"
     first_name_id = "first-name"
@@ -71,3 +74,28 @@ class Cart:
         time.sleep(3)
         self.driver.find_element_by_id("back-to-products").click()
         time.sleep(5)
+
+    def check_the_cost_of_items_and_remove_the_highest(self):
+        time.sleep(3)
+        cart_items = self.driver.find_elements_by_xpath(self.cart_list_items_cost)
+        cost = []
+        for i in cart_items:
+            c = i.text
+            c = c.split()[0].removeprefix("$")
+            cost.append(c)
+        print(cost)
+        cost1 = list(map(float, cost))
+        cost1.sort()
+        high = cost1[-1]
+        print(high)
+        position = cost.index(str(high))
+        remove_btn = "//button[text()='Remove']"
+        self.driver.execute_script("arguments[0].scrollIntoView();",
+                                   self.driver.find_elements_by_xpath(remove_btn)[position])
+        time.sleep(3)
+        self.driver.find_elements_by_xpath(remove_btn)[position].click()
+        print("Removing the item with highest price")
+        time.sleep(3)
+
+
+
